@@ -1,0 +1,25 @@
+﻿@model WebApplication.Models.VerifyPhoneNumber
+
+@{
+    ViewData["Title"] = "Voting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Voting</h1>
+
+@using (Html.BeginForm("ConfirmID", "Voting", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.PhoneNumber)
+    <br />
+    @Html.TextBoxFor(m => m.PhoneNumber)
+    @Html.ValidationMessageFor(m => m.PhoneNumber)
+    <br />
+    @Html.LabelFor(m => m.Code)
+    <br />
+    @Html.TextBoxFor(m => m.Code)
+    @Html.ValidationMessageFor(m => m.Code)
+    <br />
+    <input type="submit" name="nextBtn" value='Next' />
+    <input type="submit" name="prevBtn" value='Previous' />
+
+}

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "WebApplicationContextConnection"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql2": {
+      "type": "mssql.onprem",
+      "connectionId": "MyKeysConnection",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}

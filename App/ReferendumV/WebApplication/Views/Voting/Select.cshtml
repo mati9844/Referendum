@@ -1,0 +1,54 @@
+﻿@model WebApplication.Models.Vote
+
+@{
+    ViewData["Title"] = "Głosowanie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="card">
+    <h5 class="card-header">Karta do głosowania</h5>
+    <div class="card-body">
+
+        <form asp-action="Select">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @foreach (var data in @ViewData["Questions"] as List<Question>)
+            {
+
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <h5>@data.Name</h5>
+                        <input asp-for="Question" class="form-control"
+                               type="hidden"
+                               value="@data.Name">
+                    </div>
+
+                    <div class="col-sm-6 text-center">
+
+                        <label class="btn btn-default btn-lg">
+                            <input asp-for="Answer"
+                                   type="radio"
+                                   value="@data.PositiveAnswer" autocomplete="off" />
+                            @data.PositiveAnswer
+                        </label>
+
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <label class="btn btn-default btn-lg">
+                            <input asp-for="Answer"
+                                   type="radio"
+                                   value="@data.NegativeAnswer" autocomplete="off" /> @data.NegativeAnswer
+                            </label>
+                        </div>
+                    </div>
+                }
+            <div class="row">
+                <div class="col text-center">
+                    <input type="submit" value="Zatwierdź" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model WebApplication.Models.Result
+
+@{
+    ViewData["Title"] = "Głosowanie udane";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function copyFun() {
+        var copyText = document.getElementById("key");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        alert("Klucz został skopiowany");
+    }
+</script>
+<div class="card">
+    <h5 class="card-header">Referedum</h5>
+
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <h5 class="card-title">Głosowanie zakończone pomyślnie</h5>
+
+                <div class="input-group">
+
+                    <input type="text" value="@Html.DisplayFor(model => model.VerificationKey)" id="key">
+                    <div class="input-group-append">
+
+                        <button class="btn btn-outline-secondary" type="button" onclick="copyFun()">Kopiuj</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Zachowaj kod</h4>
+                    <p>
+                        @Html.DisplayFor(model => model.Message)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

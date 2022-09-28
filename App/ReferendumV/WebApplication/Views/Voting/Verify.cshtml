@@ -1,0 +1,44 @@
+﻿@model WebApplication.Models.VerifyPhoneNumber
+
+@{
+    ViewData["Title"] = "Verify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="card">
+    <h5 class="card-header">Weryfikacja tożsamości</h5>
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <form asp-action="Verify">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" readonly />
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Code" class="control-label"></label>
+                        <input asp-for="Code" class="form-control" autocomplete="off" required/>
+                        <span asp-validation-for="Code" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Potwierdź" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Kod weryfikacyjny</h4>
+                    <p>
+                        Wiadomość SMS z kodem została wysłana na numer telefonu podany podczas rejestracji.
+                        Potwierdzenie tożsamości jest etapem koniecznym, aby głos mógł zostać uznany za ważny.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

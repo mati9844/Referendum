@@ -1,0 +1,12 @@
+﻿@model WebApplication.Models.Result
+
+@{
+    ViewData["Title"] = "ThankYou";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Koniec głosowania</h1>
+
+<p>@Html.DisplayFor(model => model.VerificationKey)</p>
+
+<p>@Html.DisplayFor(model => model.Message)</p>

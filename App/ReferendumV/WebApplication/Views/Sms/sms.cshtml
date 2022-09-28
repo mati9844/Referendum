@@ -1,0 +1,20 @@
+﻿<!--this will make this file accept string as it's model-->
+@model string
+
+@{
+    ViewData["Title"] = "Voting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+</head>
+<body>
+    <!--this will represent the string -->
+    @Model
+</body>
+</html>
